@@ -1,7 +1,9 @@
 [
-  "github-pulls.coffee",
-  "github-issue-link.coffee",
   "github-commit-link.coffee",
+  "github-issues.coffee",
+  "github-issue-link.coffee",
+  "github-pulls.coffee",
+  "github-search.coffee",
   "redis-brain.coffee",
   "shipit.coffee",
   "zen.coffee"
