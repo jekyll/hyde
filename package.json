@@ -1,5 +1,5 @@
 {
-  "name": "hosted-hubot",
+  "name": "hyde",
   "version": "2.6.3",
 
   "author": "GitHub Inc.",
@@ -8,10 +8,12 @@
     "github",
     "hubot",
     "campfire",
-    "bot"
+    "bot",
+    "hyde",
+    "jekyll"
   ],
 
-  "description": "A simple helpful robot for your Company",
+  "description": "A robot for the best",
 
   "licenses": [{
     "type": "MIT",
@@ -20,12 +22,13 @@
 
   "repository" : {
     "type": "git",
-    "url": "https://github.com/github/hubot.git"
+    "url": "https://github.com/jekyll/hyde.git"
   },
 
   "dependencies": {
     "hubot":         ">= 2.6.0 < 3.0.0",
-    "hubot-scripts": ">= 2.5.0 < 3.0.0"
+    "hubot-scripts": ">= 2.5.0 < 3.0.0",
+    "githubot":      ">= 0.4.1 < 0.5.0"
   },
 
   "engines": {
