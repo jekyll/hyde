@@ -5,7 +5,7 @@
   "github-pulls.coffee",
   "github-pull-request-notifier.coffee",
   "github-search.coffee",
-  "janky.coffee",
+  //"janky.coffee",
   "redis-brain.coffee",
   "shipit.coffee",
   "tweeter.coffee",
