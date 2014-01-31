@@ -20,7 +20,7 @@
 
 module.exports = (robot) ->
   github = require("githubot")(robot)
-  robot.respond /status (\w+\/\w+)\s*#?(\d+)/i, (msg) ->
+  robot.respond /status (\w+\/\w+)?\s*#?(\d+)/i, (msg) ->
     repo = github.qualified_repo msg.match[1]
     pr_number = msg.match[2]
     base_url = process.env.HUBOT_GITHUB_API || 'https://api.github.com'
