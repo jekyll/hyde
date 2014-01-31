@@ -10,7 +10,8 @@
 #   HUBOT_GITHUB_API
 #
 # Commands:
-#   hubot repo show <repo> - shows activity of repository
+#   hubot status jekyll/jekyll 2004
+#   hubot status 2004
 #
 # Notes:
 #   HUBOT_GITHUB_API allows you to set a custom URL path (for Github enterprise users)
