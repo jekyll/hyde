@@ -29,4 +29,4 @@ module.exports = (robot) ->
     github.get pull_url, (pull) ->
       github.get pull.statuses_url, (status) ->
         last_status = status[0]
-        msg.send "#{pull.html_url} - #{last_status.state} - #{last_status.description}"
+        msg.send "#{last_status.state} - #{last_status.target_url}"
