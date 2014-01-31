@@ -10,7 +10,8 @@
 #   HUBOT_GITHUB_API
 #
 # Commands:
-#   hubot repo show <repo> - shows activity of repository
+#   hubot status jekyll/jekyll 2004
+#   hubot status 2004
 #
 # Notes:
 #   HUBOT_GITHUB_API allows you to set a custom URL path (for Github enterprise users)
@@ -20,7 +21,7 @@
 
 module.exports = (robot) ->
   github = require("githubot")(robot)
-  robot.respond /status (\w+\/\w+)\s*#?(\d+)/i, (msg) ->
+  robot.respond /status (\w+\/\w+)?\s*#?(\d+)/i, (msg) ->
     repo = github.qualified_repo msg.match[1]
     pr_number = msg.match[2]
     base_url = process.env.HUBOT_GITHUB_API || 'https://api.github.com'
