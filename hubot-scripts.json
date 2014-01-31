@@ -7,6 +7,5 @@
   "github-search.coffee",
   "redis-brain.coffee",
   "shipit.coffee",
-  "tweeter.coffee",
   "zen.coffee"
 ]
