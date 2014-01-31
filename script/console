@@ -1,0 +1,11 @@
+#! /bin/bash
+
+if [ -f ".env" ]; then
+  source .env
+else
+  echo "Whoopsie! Looks like your .env isn't setup. Care to take a minute to
+  create and populate it?"
+  exit 1
+fi
+
+./bin/hubot
