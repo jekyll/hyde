@@ -8,4 +8,4 @@ else
   exit 1
 fi
 
-./bin/hubot
+bin/hubot -l /
