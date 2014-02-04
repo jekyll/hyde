@@ -30,7 +30,7 @@
     "underscore.string": ">= 2.3.3 < 3.0.0",
     "url": "",
     "querystring": "",
-    "hubot-ascii-faces": "~1.0"
+    "hubot-ascii-faces": "~1.0.1"
   },
   "engines": {
     "node": ">= 0.8.x",
