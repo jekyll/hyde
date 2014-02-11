@@ -37,7 +37,7 @@ module.exports = (robot) ->
 
     try
       announcePullRequest data, (what) ->
-        robot.messageRoom user.room, what
+        robot.messageRoom room, what
     catch error
       console.log "github pull request notifier error: #{error}. Request: #{req.body}"
 
