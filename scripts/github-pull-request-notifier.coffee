@@ -18,7 +18,6 @@
 #   None
 #
 # URLS:
-#   GET  /hubot/gh-pull-requests
 #   POST /hubot/gh-pull-requests?room=<room>[&type=<type]
 #
 # Authors:
@@ -28,11 +27,6 @@ url = require('url')
 querystring = require('querystring')
 
 module.exports = (robot) ->
-
-  robot.router.get "/hubot/gh-pull-requests", (req, res) ->
-    res.setHeader 'content-type', 'text/html'
-    res.end "Hey, you sexy thing, you"
-
   robot.router.post "/hubot/gh-pull-requests", (req, res) ->
     query = querystring.parse(url.parse(req.url).query)
     console.log("received request: #{req.url}")
@@ -43,10 +37,12 @@ module.exports = (robot) ->
     user = {}
     user.room = query.room if query.room
     user.type = query.type if query.type
+    console.log("going to push to room #{room}")
+    console.log("#{typeof(data)} == #{data}") 
 
     try
       announcePullRequest req.body, (what) ->
-        robot.send user, what
+        robot.messageRoom room, what
     catch error
       console.log "github pull request notifier error: #{error}. Request: #{req.body}"
 

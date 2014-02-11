@@ -3,7 +3,6 @@
   "github-issues.coffee",
   "github-issue-link.coffee",
   "github-pulls.coffee",
-  "github-pull-request-notifier.coffee",
   "github-search.coffee",
   "redis-brain.coffee",
   "shipit.coffee",
