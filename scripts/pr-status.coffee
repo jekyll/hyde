@@ -27,6 +27,9 @@ module.exports = (robot) ->
     base_url = process.env.HUBOT_GITHUB_API || 'https://api.github.com'
     pull_url = "#{base_url}/repos/#{repo}/pulls/#{pr_number}"
 
+    github.handleErrors (response) ->
+      msg.send "#{response.error}"
+
     github.get pull_url, (pull) ->
       github.get pull.statuses_url, (status) ->
         last_status = status[0]
