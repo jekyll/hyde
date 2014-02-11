@@ -29,19 +29,16 @@ querystring = require('querystring')
 module.exports = (robot) ->
   robot.router.post "/hubot/gh-pull-requests", (req, res) ->
     query = querystring.parse(url.parse(req.url).query)
-    console.log("received request: #{req.url}")
-    console.log("query: #{query}")
 
     res.end
 
-    user = {}
-    user.room = query.room if query.room
-    user.type = query.type if query.type
-    console.log("going to push to room #{user.room}")
+    data = req.body
+    room = query.room
+    console.log("going to push to room #{room}")
     console.log("#{typeof(data)} == #{data}") 
 
     try
-      announcePullRequest req.body, (what) ->
+      announcePullRequest data, (what) ->
         robot.messageRoom user.room, what
     catch error
       console.log "github pull request notifier error: #{error}. Request: #{req.body}"
