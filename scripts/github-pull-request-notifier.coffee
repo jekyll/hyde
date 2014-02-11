@@ -30,8 +30,6 @@ module.exports = (robot) ->
   robot.router.post "/hubot/gh-pull-requests", (req, res) ->
     query = querystring.parse(url.parse(req.url).query)
 
-    res.end
-
     data = req.body
     room = query.room
     console.log("going to push to room #{room}")
@@ -42,6 +40,8 @@ module.exports = (robot) ->
         robot.messageRoom user.room, what
     catch error
       console.log "github pull request notifier error: #{error}. Request: #{req.body}"
+
+    res.end ""
 
 
 announcePullRequest = (data, cb) ->
