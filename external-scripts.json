@@ -1,4 +1,5 @@
 [
   "hubot-ascii-faces",
-  "hubot-principles"
+  "hubot-principles",
+  "hubot-pr-status"
 ]
