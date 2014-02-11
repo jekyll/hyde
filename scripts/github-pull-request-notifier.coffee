@@ -37,7 +37,7 @@ module.exports = (robot) ->
     user = {}
     user.room = query.room if query.room
     user.type = query.type if query.type
-    console.log("going to push to room #{room}")
+    console.log("going to push to room #{user.room}")
     console.log("#{typeof(data)} == #{data}") 
 
     try
