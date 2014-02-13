@@ -1,5 +1,6 @@
 [
   "hubot-ascii-faces",
+  "hubot-github-pages",
   "hubot-principles",
   "hubot-pr-status"
 ]
