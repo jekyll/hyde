@@ -24,7 +24,7 @@
   "dependencies": {
     "hubot": "~2.7.1",
     "hubot-scripts": "~2.5.8",
-    "githubot": "~0.4.2",
+    "githubot": "^0.4.2",
     "twit": "~1.1.12",
     "underscore": "~1.6.0",
     "underscore.string": "~2.3.3",
