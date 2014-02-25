@@ -24,6 +24,7 @@
 #
 # Dependencies:
 #   "twit": "1.1.8"
+#   "twitter-text": "1.7.x"
 #
 # Configuration:
 #   HUBOT_TWITTER_CONSUMER_KEY
@@ -70,7 +71,7 @@ module.exports = (robot) ->
       msg.reply "You can't very well tweet an empty status, can ya?"
       return
 
-    tweetLength = twitterText.tweetLength(update)
+    tweetLength = twitterText.getTweetLength(update)
     if tweetLength > 140
       msg.reply "Your tweet is #{tweetLength - 140} characters too long. Twitter users can't read that many characters!"
       return
