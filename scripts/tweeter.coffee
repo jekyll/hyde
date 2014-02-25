@@ -72,7 +72,7 @@ module.exports = (robot) ->
 
     tweetLength = twitterText.tweetLength(update)
     if tweetLength > 140
-      msg.reply "Your tweet is #{tweetLength - 140} characters too long."
+      msg.reply "Your tweet is #{tweetLength - 140} characters too long. Twitter users can't read that many characters!"
       return
 
     twit = new Twit
