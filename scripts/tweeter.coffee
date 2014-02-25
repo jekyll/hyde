@@ -78,8 +78,10 @@ module.exports = (robot) ->
     twit.post "statuses/update",
       status: update
     , (err, reply) ->
-      console.log "===== Twitter responses:"
-      console.log err, reply
+      console.log "===== Twitter error:"
+      console.log err
+      console.log "===== Twitter response:"
+      console.log reply
       if err
         data = JSON.parse(err.data).errors[0]
         msg.reply "I can't do that. #{data.message} (error #{data.code})"
