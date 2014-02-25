@@ -37,6 +37,7 @@
 #   https://github.com/jhubert/hubot-tweeter
 
 Twit = require "twit"
+twitterText = require "twitter-text"
 config =
   consumer_key: process.env.HUBOT_TWITTER_CONSUMER_KEY
   consumer_secret: process.env.HUBOT_TWITTER_CONSUMER_SECRET
@@ -69,6 +70,11 @@ module.exports = (robot) ->
       msg.reply "You can't very well tweet an empty status, can ya?"
       return
 
+    tweetLength = twitterText.tweetLength(update)
+    if tweetLength > 140
+      msg.reply "Your tweet is #{tweetLength - 140} characters too long. Twitter users can't read that many characters!"
+      return
+
     twit = new Twit
       consumer_key: config.consumer_key
       consumer_secret: config.consumer_secret
@@ -84,4 +90,4 @@ module.exports = (robot) ->
       if reply['text']
         return msg.send "#{reply['user']['screen_name']} just tweeted: #{reply['text']}"
       else
-        return msg.reply "Hmmm.. I'm not sure if the tweet posted. Check the account: http://twitter.com/#{username}"
+        return msg.reply "Hmmm. I'm not sure if the tweet posted. Check the account: http://twitter.com/#{username}"
