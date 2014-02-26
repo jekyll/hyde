@@ -17,10 +17,10 @@
 #     "github" : { "access_token" : "", "access_token_secret" : ""}
 #   }
 #
-#   This also can be installed as an npm package: hubot-tweeter
-#
 # Commands:
-#   hubot tweet@<screen_name> <update> - posts the update to twitter as <screen_name>
+#   hubot tweet@<screen_name> <update> - posts <update> to Twitter as <screen_name>
+#   hubot untweet@<screen_name> <tweet_id> - deletes <tweet_id> from Twitter
+#   hubot rt@<screen_name> <tweet_url_or_id> - <screen_name> retweets <tweet_url_or_id>
 #
 # Dependencies:
 #   "twit": "1.1.8"
@@ -43,6 +43,13 @@ config =
   consumer_key: process.env.HUBOT_TWITTER_CONSUMER_KEY
   consumer_secret: process.env.HUBOT_TWITTER_CONSUMER_SECRET
   accounts_json: process.env.HUBOT_TWEETER_ACCOUNTS
+
+authenticated_twit = (username) ->
+  new Twit
+    consumer_key: config.consumer_key
+    consumer_secret: config.consumer_secret
+    access_token: config.accounts[username].access_token
+    access_token_secret: config.accounts[username].access_token_secret
 
 unless config.consumer_key
   console.log "Please set the HUBOT_TWITTER_CONSUMER_KEY environment variable."
@@ -71,24 +78,52 @@ module.exports = (robot) ->
       msg.reply "You can't very well tweet an empty status, can ya?"
       return
 
-    tweetLength = twitterText.getTweetLength(update)
-    if tweetLength > 140
-      msg.reply "Your tweet is #{tweetLength - 140} characters too long. Twitter users can't read that many characters!"
+    tweetOverflow = twitterText.getTweetLength(update) - 140
+    if tweetOverflow > 0
+      msg.reply "Your tweet is #{tweetOverflow} characters too long. Twitter users can't read that many characters!"
       return
 
-    twit = new Twit
-      consumer_key: config.consumer_key
-      consumer_secret: config.consumer_secret
-      access_token: config.accounts[username].access_token
-      access_token_secret: config.accounts[username].access_token_secret
-
-    twit.post "statuses/update",
+    authenticated_twit(username).post "statuses/update",
       status: update
     , (err, reply) ->
       if err
         msg.reply "I can't do that. #{err.message} (error #{err.statusCode})"
         return
       if reply['text']
-        return msg.send "#{reply['user']['screen_name']} just tweeted: #{reply['text']}"
+        msg.send "#{reply['user']['screen_name']} just tweeted: '#{reply['text']}'."
+        return msg.send "To delete, run 'hubot untweet@#{username} #{reply['id_str']}'."
       else
         return msg.reply "Hmmm. I'm not sure if the tweet posted. Check the account: http://twitter.com/#{username}"
+
+  robot.respond /untweet\@([^\s]+)\s(.*)/i, (msg) ->
+    username = msg.match[1]
+    tweet_id = msg.match[2]
+
+    authenticated_twit(username).post "statuses/destroy/#{tweet_id}", {}, (err, reply) ->
+      if err
+        msg.reply "I can't do that. #{err.message} (error #{err.statusCode})"
+        return
+      if reply['text']
+        return msg.send "#{reply['user']['screen_name']} just deleted tweet: '#{reply['text']}'."
+      else
+        return msg.reply "Hmmm. I'm not sure if the tweet was deleted. Check the account: http://twitter.com/#{username}"
+
+  robot.respond /rt\@([^\s]+)\s(.*)/i, (msg) ->
+    username = msg.match[1]
+    tweet_url_or_id = msg.match[2]
+
+    tweet_id_match = tweet_url_or_id.match(/(\d+)$/)
+    unless tweet_id_match && tweet_id_match[0]
+      msg.reply "Sorry, '#{tweet_url_or_id}' doesn't contain a valid id."
+      return
+
+    tweet_id = tweet_id_match[0]
+
+    authenticated_twit(username).post "statuses/retweet/#{tweet_id}", (err, reply) ->
+      if err
+        msg.reply "I can't do that. #{err.message} (error #{err.statusCode})"
+        return
+      if reply['text']
+        return msg.send "#{reply['user']['screen_name']} just tweeted: #{reply['text']}"
+      else
+        return msg.reply "Hmmm. I'm not sure if that retweet posted. Check the account: http://twitter.com/#{username}"
