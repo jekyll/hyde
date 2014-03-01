@@ -3,5 +3,6 @@
   "hubot-gif-me",
   "hubot-github-pages",
   "hubot-principles",
-  "hubot-pr-status"
+  "hubot-pr-status",
+  "hubot-tweeter"
 ]
