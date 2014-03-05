@@ -4,5 +4,6 @@
   "hubot-github-pages",
   "hubot-principles",
   "hubot-pr-status",
-  "hubot-tweeter"
+  "hubot-tweeter",
+  "hubot-github-repo-event-notifier"
 ]
