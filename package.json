@@ -22,7 +22,7 @@
     "url": "https://github.com/jekyll/hyde.git"
   },
   "dependencies": {
-    "hubot": "~2.7.1",
+    "hubot": "^2.7.2",
     "hubot-scripts": "~2.5.8",
     "githubot": "^0.4.2",
     "twit": "~1.1.12",
@@ -35,7 +35,7 @@
     "hubot-pr-status": "~0.1.2",
     "hubot-github-pages": "~1.0.0",
     "hubot-gif-me": "^1.0.0",
-    "twitter-text": "^1.7.0",
+    "twitter-text": "^1.8.0",
     "hubot-tweeter": "^0.2.1"
   },
   "engines": {
