@@ -41,7 +41,8 @@
     "hubot-seriouslyguys": "^1.0.0",
     "hubot-auth": "^1.0.0",
     "soupselect": "^0.2.0",
-    "htmlparser": "^1.7.7"
+    "htmlparser": "^1.7.7",
+    "node-geocoder": "^1.4.0"
   },
   "engines": {
     "node": "^0.10.26",
