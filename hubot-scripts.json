@@ -1,4 +1,5 @@
 [
+  "brb.coffee",
   "github-commit-link.coffee",
   "github-issues.coffee",
   "github-issue-link.coffee",
