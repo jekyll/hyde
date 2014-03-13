@@ -6,5 +6,6 @@
   "hubot-pr-status",
   "hubot-tweeter",
   "hubot-github-repo-event-notifier",
-  "hubot-seriouslyguys"
+  "hubot-seriouslyguys",
+  "hubot-auth"
 ]
