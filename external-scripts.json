@@ -1,4 +1,5 @@
 [
+  "hubot-auth",
   "hubot-ascii-faces",
   "hubot-gif-me",
   "hubot-github-pages",
@@ -7,5 +8,5 @@
   "hubot-tweeter",
   "hubot-github-repo-event-notifier",
   "hubot-seriouslyguys",
-  "hubot-auth"
+  "hubot-time-me"
 ]
