@@ -8,6 +8,6 @@ module.exports = (robot) ->
   robot.hear /kicks hubot/i, (msg) ->
     msg.send "*oof*"
   
-  robot.hear /hubot you suck/i, (msg) ->
+  robot.hear /(hubot you suck|you suck hubot)/i, (msg) ->
     msg.send gifs.come_at_me_bro
 
