@@ -7,9 +7,6 @@ gifs =
 module.exports = (robot) ->
   robot.hear /kicks hubot/i, (msg) ->
     msg.send "*oof*"
-
-  robot.respond /you suck/i, (msg) ->
-    msg.send gifs.come_at_me_bro
   
   robot.hear /hubot you suck/i, (msg) ->
     msg.send gifs.come_at_me_bro
