@@ -22,6 +22,7 @@
     "url": "https://github.com/jekyll/hyde.git"
   },
   "dependencies": {
+    "optparse": "",
     "coffee-script": "1.7.0",
     "hubot": "^2.7.2",
     "hubot-scripts": "^2.5.11",
