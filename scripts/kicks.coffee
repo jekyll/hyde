@@ -11,3 +11,5 @@ module.exports = (robot) ->
   robot.hear /(hubot you suck|you suck hubot)/i, (msg) ->
     msg.send gifs.come_at_me_bro
 
+  robot.hear /shoot(ing)? the messenger/i, (msg) ->
+    msg.send "*runs away*"
