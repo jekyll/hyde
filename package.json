@@ -5,7 +5,7 @@
   "keywords": [
     "github",
     "hubot",
-    "campfire",
+    "slack",
     "bot",
     "hyde",
     "jekyll"
@@ -34,6 +34,7 @@
     "hubot-principles": "^1.0.0",
     "hubot-scripts": "^2.5.11",
     "hubot-seriouslyguys": "^1.0.0",
+    "hubot-slack": "^2.2.0",
     "hubot-time-me": "^1.0.0",
     "hubot-tweeter": "^0.3.0",
     "optparse": "^1.0.5",
