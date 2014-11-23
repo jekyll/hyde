@@ -28,7 +28,7 @@
     "hubot-ascii-faces": "~1.0.2",
     "hubot-auth": "^1.0.0",
     "hubot-gif-me": "^1.2.0",
-    "hubot-github-pages": "git://github.com/parkr/hubot-github-pages#609dbd36a6d9831e7ed4f745db6ed2fd677bedbb",
+    "hubot-github-pages": "^1.1.0",
     "hubot-github-repo-event-notifier": "^1.3.2",
     "hubot-pr-status": "^0.1.2",
     "hubot-principles": "^1.0.0",
