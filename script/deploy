@@ -1,0 +1,6 @@
+#!/bin/bash
+set -e
+git checkout master
+git pull --rebase
+git push origin master
+git push heroku master

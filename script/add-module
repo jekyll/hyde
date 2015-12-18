@@ -1,0 +1,19 @@
+#!/bin/bash
+[ -z "$1" ] && {
+  echo "usage: $0 PACKAGE_NAME" > /dev/stderr
+  exit 1
+}
+
+set -e
+
+node -e "
+  function filterUnique(value, index, self) {
+    return self.indexOf(value) === index;
+  }
+  var scripts = require('./external-scripts.json');
+  scripts.push('$1');
+  var output = JSON.stringify(scripts.sort().filter(filterUnique), null, '  ');
+  require('fs').writeFileSync('./external-scripts.json', output+\"\n\");"
+npm install --save $1
+git add external-scripts.json package.json
+git commit -m "Add new script: $1"

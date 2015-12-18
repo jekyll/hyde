@@ -1,7 +1,6 @@
-#! /bin/bash
-
-npm install
-
-if [ ! -f ".env" ]; then
+#!/bin/bash
+if [ ! -f .env ]; then
   cp .env.example .env
 fi
+npm install
+git remote -v | grep heroku || git remote add heroku git@heroku.com:immense-forest-1456.git
