@@ -1,2 +1,2 @@
 #!/bin/bash
-bin/hubot -n hubot -l / $@
+bin/hubot -n hubot -l . $@
