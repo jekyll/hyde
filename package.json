@@ -11,6 +11,7 @@
     "jekyll"
   ],
   "description": "A robot for the best",
+  "license": "MIT",
   "licenses": [
     {
       "type": "MIT",
