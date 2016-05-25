@@ -6,7 +6,6 @@
   "github-issues.coffee",
   "github-issue-link.coffee",
   "github-pulls.coffee",
-  "janky.coffee",
   "redis-brain.coffee",
   "shipit.coffee",
   "zen.coffee"
