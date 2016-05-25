@@ -7,6 +7,7 @@
   "hubot-pr-status",
   "hubot-tweeter",
   "hubot-github-repo-event-notifier",
+  "hubot-shipit",
   "hubot-seriouslyguys",
   "hubot-time-me"
 ]

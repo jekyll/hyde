@@ -7,6 +7,5 @@
   "github-issue-link.coffee",
   "github-pulls.coffee",
   "redis-brain.coffee",
-  "shipit.coffee",
   "zen.coffee"
 ]

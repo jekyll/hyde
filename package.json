@@ -35,6 +35,7 @@
     "hubot-principles": "^1.0.0",
     "hubot-scripts": "^2.17.2",
     "hubot-seriouslyguys": "^1.0.0",
+    "hubot-shipit": "^0.2.0",
     "hubot-slack": "^3.4.2",
     "hubot-time-me": "^1.1.0",
     "hubot-tweeter": "^0.3.2",
